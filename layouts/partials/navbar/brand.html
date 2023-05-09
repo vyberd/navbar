@@ -1,6 +1,10 @@
 <div class="navbar-brand">
 	<a class="navbar-logo navbar-item" aria-label="{{ T "index" }}" href="{{ relLangURL "/" }}">
-		{{ partial "img" (dict "ctx" . "name" "favicon.svg" "global" true "nolazy" true "svg" true "width" "28px" "height" "28px") }}
+		{{ if .Site.Params.logo }}
+			{{ partial "img" (dict "ctx" . "name" .Site.Params.logo "global" true "nolazy" true "svg" true "width" "28px" "height" "28px") }}
+		{{ else }}
+			{{ partial "img" (dict "ctx" . "name" "favicon.svg" "global" true "nolazy" true "svg" true "width" "28px" "height" "28px") }}
+		{{ end }}
 	</a>
 	{{ partial "navbar/burger" }}
 </div>
