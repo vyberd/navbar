@@ -3,7 +3,7 @@
 		{{ if .URL }}
 			<a class="navbar-link" href="{{ .URL }}">{{ .Name }}</a>
 		{{ else }}
-			<p class="navbar-link">{{ .Name }}</p>
+			<p class="navbar-link">{{ or (T .Identifier) .Name }}</p>
 		{{ end }}
 		<div class="navbar-dropdown">
 			{{ range .Children }}
