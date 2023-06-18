@@ -1,16 +1,17 @@
+{{ $name := or (T .Identifier) .Name }}
 {{ if .HasChildren }}
 	<div class="navbar-item has-dropdown is-hoverable">
 		{{ if .URL }}
-			<a class="navbar-link" href="{{ .URL }}">{{ .Name }}</a>
+			<a class="navbar-link" href="{{ .URL }}">{{ $name }}</a>
 		{{ else }}
-			<p class="navbar-link">{{ or (T .Identifier) .Name }}</p>
+			<p class="navbar-link">{{ $name }}</p>
 		{{ end }}
 		<div class="navbar-dropdown">
 			{{ range .Children }}
-				<a class="navbar-item" href="{{ .URL }}">{{ .Name }}</a>
+				<a class="navbar-item" href="{{ .URL }}">{{ $name }}</a>
 			{{ end }}
 		</div>
 	</div>
 {{ else }}
-	<a class="navbar-item" href="{{ .URL }}">{{ .Name }}</a>
+	<a class="navbar-item" href="{{ .URL }}">{{ $name }}</a>
 {{ end }}
