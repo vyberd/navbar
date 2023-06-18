@@ -8,7 +8,7 @@
 		{{ end }}
 		<div class="navbar-dropdown">
 			{{ range .Children }}
-				<a class="navbar-item" href="{{ .URL }}">{{ $name }}</a>
+				<a class="navbar-item" href="{{ .URL }}">{{ .Name }}</a>
 			{{ end }}
 		</div>
 	</div>
